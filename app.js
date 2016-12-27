@@ -29,14 +29,15 @@ app.use(session({
 
 // 路由模块
 const convert = require('./ulits/convert');
+const convertM = require('./ulits/convertM');
 const router = express.Router();
 router.get('/', function(req, res) {
 	res.render('index');
 })
 router.post('/hack', function(req, res) {
-	let {img} = req.body;
+	let {mobile, img} = req.body;
 	let image = new Buffer(img.replace(/data:.*;base64,/i, ''), 'base64');
-	let oriImage = convert(image);
+	let oriImage = mobile == 1 ? convert(image) : mobile == 2 ? convertM(image) : null;
 	res.json({image: oriImage});
 });
 
