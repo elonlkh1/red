@@ -4,7 +4,7 @@
  */
 module.exports = {
 	// 服务器设置
-	http_port: 7777,
+	http_port: 7706,
 
 	sessionSecret: 'aliAR_Secret',
 	sessionCookie: {maxAge: 72 * 3600 * 1000},
